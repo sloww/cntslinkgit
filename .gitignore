@@ -56,4 +56,13 @@ docs/_build/
 
 # PyBuilder
 target/
+nstalled.cfg
+bin
+develop-eggs
+dist
+downloads
+eggs
+parts
+src/*.egg-info
+lib
 

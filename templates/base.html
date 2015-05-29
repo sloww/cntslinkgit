@@ -1,0 +1,17 @@
+{% load staticfiles %}
+<html>
+
+
+<head>
+
+<title>{% block title  %}  {% endblock  %}</title>
+
+<link rel=”stylesheet” href={% static 'label/github.css' %} type=”text/css” >
+
+</head>
+<body>
+{%  block banner %} {% endblock %}
+{% block body  %} {% endblock  %}
+
+</body>
+</html>
