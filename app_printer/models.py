@@ -1,4 +1,5 @@
 from django.db import models
+from django_markdown.models import MarkdownField
 
 
 class Brand(models.Model):
@@ -8,7 +9,7 @@ class Brand(models.Model):
     nation = models.CharField(max_length=300)
     logo_url = models.CharField(max_length=300)
     diver_url = models.CharField(max_length=300)
-    description = models.TextField()
+    description = MarkdownField()
 
     def __str__(self):
         return self.name
@@ -18,17 +19,17 @@ class Brand(models.Model):
 
 
 class PrintType(models.Model):
-        name = models.CharField(max_length=300)
-        order_index = models.IntegerField(default=0)
-        set_url= models.CharField(max_length=300)
-        count_daily = models.CharField(max_length=300)
-        description = models.TextField()
+    name = models.CharField(max_length=300)
+    order_index = models.IntegerField(default=0)
+    set_url= models.CharField(max_length=300)
+    count_daily = models.CharField(max_length=300)
+    description = MarkdownField()
 
-        def __str__(self):
-            return self.name
+    def __str__(self):
+        return self.name
 
-        class Meta():
-            verbose_name_plural = 'Type Set'
+    class Meta():
+        verbose_name_plural = 'Type Set'
 
 
 class Resolution(models.Model):
@@ -39,7 +40,7 @@ class Resolution(models.Model):
 
 
     class Meta():
-        verbose_name_plural = 'Resolution Set '
+        verbose_name_plural = 'Resolution'
 
 
 class MaxWidth(models.Model):
@@ -49,7 +50,7 @@ class MaxWidth(models.Model):
         return self.max_width
 
     class Meta:
-        verbose_name_plural = 'Max Width Set '
+        verbose_name_plural = 'Max Width'
 
 
 class RibbonSize(models.Model):
@@ -59,7 +60,7 @@ class RibbonSize(models.Model):
         return self.ribbon_size
 
     class Meta:
-        verbose_name_plural = 'Ribbon Size Set '
+        verbose_name_plural = 'Ribbon Size'
 
 
 class RibbonType(models.Model):
@@ -69,12 +70,12 @@ class RibbonType(models.Model):
         return self.ribbon_type
 
     class Meta:
-        verbose_name_plural = 'Ribbon Type Set '
+        verbose_name_plural = 'Ribbon Type'
 
 
 class Article(models.Model):
     name = models.CharField(max_length=300)
-    description = models.TextField()
+    description = MarkdownField()
     set_url = models.CharField(max_length=300)
 
     def __str__(self):
@@ -103,15 +104,16 @@ class Printer(models.Model):
     catalogue_url = models.CharField(max_length=300)
     diver_url = models.CharField(max_length=300)
     price = models.IntegerField(default=0)
-    description = models.TextField()
+    description = MarkdownField()
     img_url = models.CharField(max_length=300)
     img_banner = models.CharField(max_length=300)
     show_style = models.IntegerField(default=0)
     is_public = models.BooleanField(default=False)
-    is_promotion = models.IntegerField(default=False)
+    is_promotion = models.BooleanField(default=False)
+    article = models.ForeignKey(Article)
 
     def __str__(self):
         return self.name
 
     class Meta:
-        verbose_name_plural = 'Printer Set '
+        verbose_name_plural = 'Printers'
