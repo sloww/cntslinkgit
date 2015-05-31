@@ -1,17 +1,19 @@
-{% load staticfiles %}
-<html>
-
-
+<!DOCTYPE html>
+<html lang="zh-CN">
 <head>
-
-<title>{% block title  %}  {% endblock  %}</title>
-
-<link rel=”stylesheet” href={% static 'label/github.css' %} type=”text/css” >
-
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>{% block title  %}  {% endblock  %}</title>
+    <link href="http://cdn.staticfile.org/twitter-bootstrap/3.3.1/css/bootstrap.min.css" rel="stylesheet">
+    <link  href="http://cdn.staticfile.org/twitter-bootstrap/3.3.1/css/bootstrap-theme.min.css" rel="stylesheet">
 </head>
-<body>
-{%  block banner %} {% endblock %}
-{% block body  %} {% endblock  %}
+<body class="bs-docs-home">
+    {% block banner %} {% endblock %}
+    {% block body  %} {% endblock  %}
 
+    <script src="http://cdn.staticfile.org/jquery/2.1.1-rc2/jquery.min.js"></script>
+    <script src="http://cdn.staticfile.org/twitter-bootstrap/3.3.1/js/bootstrap.min.js"></script>
+    <script src="http://cdn.tslink.cn/js/ie10-viewport-bug-workaround.js"></script>
 </body>
 </html>

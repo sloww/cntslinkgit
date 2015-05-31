@@ -60,7 +60,7 @@ ROOT_URLCONF = 'cntslink.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': ['/home/one/cntslink/templates',],
+        'DIRS': ['/home/one/cntslinkgit/templates',],
         'APP_DIRS': False,
         'OPTIONS': {
             'context_processors': [
