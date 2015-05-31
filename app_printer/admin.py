@@ -1,12 +1,13 @@
 from django.contrib import admin
-from app_printer.models import Brand, PrintType, Resolution, MaxWidth, RibbonSize, RibbonType, Article, Printer
+from app_printer.models import Brand, PrinterType, Article, Printer
+
+
+class PrinterAdmin(admin.ModelAdmin):
+    list_display = ['id','name','brand','printer_type','resolution']
+    save_on_top = True
 
 
 admin.site.register(Brand)
-admin.site.register(PrintType)
-admin.site.register(Resolution)
-admin.site.register(MaxWidth)
-admin.site.register(RibbonSize)
-admin.site.register(RibbonType)
+admin.site.register(PrinterType)
 admin.site.register(Article)
-admin.site.register(Printer)
+admin.site.register(Printer,PrinterAdmin)
