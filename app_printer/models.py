@@ -1,8 +1,13 @@
+
 from django.db import models
 from django_markdown.models import MarkdownField
+from app_page.models import Page
+import uuid
 
 
 class CBase(models.Model):
+    id = models.UUIDField(primary_key=True, default=uuid.uuid4, editable=False)
+    page = models.ForeignKey(Page)
     name = models.CharField(max_length=300)
     order_index = models.IntegerField(default=0)
     title = models.CharField(max_length=300,blank=True)

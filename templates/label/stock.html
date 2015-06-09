@@ -1,17 +1,15 @@
-{%  extends 'base.html'  %}
+{% extends "base.html" %}
 {% load markdown_deux_tags %}
 {{ filter_material  }}
 {% block body  %}
-<div class='markdown-body' id='markdown-body'>
 <ul>
     {% for label in labels  %}
     <li>
     <a href="{% url 'label_detail' label.setUrl %}">{{ label  }}</a>
-    <p>
-    {{ label.description|markdown  }}
-    </p>
+    <div class='markdown-body' id='markdown-body'>
+        {{ label.description|markdown  }}
+    </div>
     </li>
     {% endfor  %}
 </ul> 
-</div>
 {% endblock %}

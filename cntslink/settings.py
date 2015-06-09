@@ -40,6 +40,7 @@ INSTALLED_APPS = (
     'django.contrib.staticfiles',
     'app_label',
     'app_printer',
+    'app_page',
     'django_markdown',
     'markdown_deux',
 )
